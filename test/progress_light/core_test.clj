@@ -4,15 +4,15 @@
             [clojure.string :as str]))
 
 (defn test-throttling [& {:keys [max-ticks tick-every]}]
-  (println "max-ticks" max-ticks "tick-every" tick-every)
   ;; Since we are dealing with timers here, we don't always get exactly
   ;; 2 frames. Allow for up to three frames.
   (is (<
        1
        (-> (with-out-str
-             (monitor-progress max-ticks)
-             (dotimes [n max-ticks] (tick) (Thread/sleep tick-every))
-             (done))
+             (let [p-light (progress-light)]
+               (monitor-progress p-light max-ticks)
+               (dotimes [n max-ticks] (tick p-light) (Thread/sleep tick-every))
+               (done p-light)))
            (str/split #"\r")
            count)
        4)))
