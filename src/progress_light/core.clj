@@ -1,7 +1,6 @@
 (ns progress-light.core
   (:require [clj-progress.core :as progress]
-            [clojure.core.async :as async :refer [>!! timeout chan alt!! thread]])
-  (:gen-class))
+            [clojure.core.async :as async :refer [>!! timeout chan alt!! thread]]))
 
 (def progress-ch
   (chan))
@@ -26,9 +25,3 @@
 
 (defn tick [& [obj]] (>!! progress-ch :tick) obj)
 (defn done [& [obj]] (>!! progress-ch :done) obj)
-
-(defn -main [& args]
-    (monitor-progress 1000)
-    (dotimes [n 1000] (Thread/sleep 10) (tick))
-    (done)
-    (System/exit 0))
