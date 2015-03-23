@@ -14,7 +14,7 @@ The end result is a much more predictable, and oftentimes more efficient use of 
 
 ## Installation
 
-You can install [progress-light using clojars](https://clojars.org/org.clojars.bill/progress-light) repository.
+You can install [progress-light using clojars](https://clojars.org/progress-light) repository.
 
 With Leiningen:
 
