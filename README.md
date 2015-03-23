@@ -18,7 +18,7 @@ You can install [progress-light using clojars](https://clojars.org/progress-ligh
 
 With Leiningen:
 
-[progress-light "0.1.0"]
+[progress-light "0.1.1"]
 
 ## Usage
 
