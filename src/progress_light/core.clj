@@ -6,7 +6,7 @@
 (defn progress-light []
   (chan))
 
-(defn monitor-progress 
+(defn monitor-progress
   ([p-light max-ticks]
    "monitor up to max-ticks; inform every 1000 milliseconds (i.e. 1 second)"
    (monitor-progress p-light max-ticks 1000))
@@ -20,8 +20,7 @@
                         (condp = v
                           :tick (recur (inc progress) timer)
                           :done (progress/done)))
-               timer (do (when (pos? progress) ;; can't tick-to 0
-                           (progress/tick-to progress))
+               timer (do (progress/tick-to progress)
                          (recur progress (timeout inform-every))))))))
 
 (defn tick [ p-light & [obj]] (>!! p-light :tick) obj)

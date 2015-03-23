@@ -23,6 +23,4 @@
 
 (deftest multiple-frames-per-tick-test
   (testing "a tick arrives about once every other (1s) frame; about 2 frames over 2 seconds"
-    (test-throttling :max-ticks 1 :tick-every 3000)))
-
-
+    (test-throttling :max-ticks 1 :tick-every 1500)))
