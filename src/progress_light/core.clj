@@ -4,7 +4,7 @@
 
 ;; constructor
 (defn progress-light []
-  (chan))
+  (chan 100))
 
 (defn monitor-progress 
   ([p-light max-ticks]
