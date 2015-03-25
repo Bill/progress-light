@@ -1,4 +1,4 @@
-(defproject progress-light "0.1.1"
+(defproject progress-light "0.1.2"
   :description "throttles clj-progress"
   :url "https://github.com/Bill/progress-light"
   :license {:name "Eclipse Public License"
